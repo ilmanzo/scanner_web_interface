@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Web Interface</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Benvenuti nella pagina delle scansioni!</h1>
+        <h2>Accendi la stampante, inserisci il foglio da scansionare a faccia in giù.</h2>
+        <p>Quando lo scanner è pronto, seleziona il pulsante che desideri. Lo scanner invierà il pdf via mail al
+            destinatario selezionato</p>
+    </div>
+
+    <div class="box">
+        <div class="block">
+            <form action="/scan" method="get">
+                <input type="submit" value="Andrea" class="button is-success is-rounded is-large is-fullwidth"
+                    name="ilmanzo@gmail.com" id="frm1_Andrea" />
+            </form>
+        </div>
+        <div class="block">
+            <form action="/scan" method="get">
+                <input type="submit" value="Chiara" class="button is-info is-rounded is-large is-fullwidth"
+                    name="chiara.bissoli@gmail.com" id="frm1_Chiara" />
+            </form>
+        </div>
+
+        <div class="block">
+            <form action="/scan" method="get">
+                <input type="submit" value="Federico" class="button is-warning is-rounded is-large is-fullwidth"
+                    name="federico.manzini6@gmail.com" id="frm1_Federico" />
+            </form>
+        </div>
+
+        <div class="block">
+            <form action="/scan" method="get">
+                <input type="submit" value="Elisa" class="button is-danger is-rounded is-large is-fullwidth"
+                    name="elisa.manzini@icbovolone.edu.it" id="frm1_Elisa" />
+            </form>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>
