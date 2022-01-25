@@ -6,6 +6,7 @@ import (
 	embed "embed"
 	"log"
 	"net/http"
+	"os/exec"
 )
 
 //go:embed index.html
@@ -14,11 +15,20 @@ var indexPage []byte
 //go:embed assets/*
 var assets embed.FS
 
+func RunScanCommand(email string) string {
+	cmd, err := exec.Command("/bin/bash", "/usr/local/bin/scan.sh", email).Output()
+	if err != nil {
+		log.Printf("error in running scan command: %s", err)
+	}
+	output := string(cmd)
+	return output
+}
+
 func scanner(w http.ResponseWriter, r *http.Request) {
 	email := r.URL.Query().Get("email")
-
-	log.Println(r.URL.Query())
-	log.Println("sending email to:" + email)
+	log.Printf("sending email to: %s\n", email)
+	output := RunScanCommand(email)
+	log.Printf("Output: %s\n", output)
 	http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 }
 
