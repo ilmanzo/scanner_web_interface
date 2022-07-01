@@ -7,7 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scanner Web Interface</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <script type="text/javascript" src="assets/notify-js.js"></script>
 </head>
+
+<script>
+  function showToast(formid) {
+    const toast=new NotifyJS({
+          message: "Scansione in corso",
+          duration: 20000,
+          timer: true
+          });
+    document.forms[formid].submit();
+    return true;
+    }
+</script>
 
 <body>
     <div class="box">
@@ -22,14 +36,14 @@
             <form action="/scan/" method="get">
                 <input type="hidden" name="email" value="ilmanzo@gmail.com" /> 
                 <input type="submit" value="Andrea" class="button is-success is-rounded is-large is-fullwidth"
-                    name="Andrea" id="frm1_Andrea" />
+                    name="Andrea" id="frm1_Andrea" onclick="showToast(0)"/>
             </form>
         </div>
         <div class="block">
             <form action="/scan/" method="get">
                 <input type="hidden" name="email" value="chiara.bissoli@gmail.com" /> 
                 <input type="submit" value="Chiara" class="button is-info is-rounded is-large is-fullwidth"
-                    name="Chiara" id="frm1_Chiara" />
+                    name="Chiara" id="frm1_Chiara" onclick="showToast(1)"/>
             </form>
         </div>
 
@@ -37,7 +51,7 @@
             <form action="/scan/" method="get">
                 <input type="hidden" name="email" value="federico.manzini6@gmail.com" />
                 <input type="submit" value="Federico" class="button is-warning is-rounded is-large is-fullwidth"
-                    name="Federico" id="frm1_Federico" />
+                    name="Federico" id="frm1_Federico" onclick="showToast(2)"/>
             </form>
         </div>
 
@@ -45,7 +59,7 @@
             <form action="/scan/" method="get">
                 <input type="hidden" name="email" value="elisa.manzini@icbovolone.edu.it" />
                 <input type="submit" value="Elisa" class="button is-danger is-rounded is-large is-fullwidth"
-                    name="Elisa" id="frm1_Elisa" />
+                    name="Elisa" id="frm1_Elisa" onclick="showToast(3)"/>
             </form>
 
 
